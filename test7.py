@@ -151,9 +151,8 @@ schedule.every().day.at("14:00").do(sentmail)
 
 
 def main():
-    ################################################
-print('*****************************************************************************************')
-print('''
+    print('*****************************************************************************************')
+    print('''
 
                                                                                  
                                                                                 
@@ -176,33 +175,34 @@ print('''
                           Server infrastructure monitoring Program
                             Developed by Mohammed Saleh 201501579
                                   Bahrain Polytechnic 2020
-                           
-''')
-print('*****************************************************************************************')
-now = datetime.datetime.now()
-x = 0
-while x < 3:
-    username = input('Enter username: ')
-    password = input('Enter password: ')
-    if password=='123123' and username=='Mohamed':
-        print('Welcome', username)
-        print("Scanning ..... SNMP .....")
-        Semail = input('Which email you want to send the report to: ')
-        print (" The reported generated at:  ")
-        print (now.strftime("%Y-%m-%d %H:%M:%S"))
-        getinfo()
-        sentmail()
-        while cpu < 70:
+
+                           ''')
+    print('*****************************************************************************************')
+    now = datetime.datetime.now()
+    x = 0
+    while x < 3:
+        username = input('Enter username: ')
+        password = input('Enter password: ')
+        if password=='123123' and username=='Mohamed':
+            print('Welcome', username)
+            print("Scanning ..... SNMP .....")
+            Semail = input('Which email you want to send the report to: ')
+            print (" The reported generated at:  ")
+            print (now.strftime("%Y-%m-%d %H:%M:%S"))
             getinfo()
-            print('THE SCRIPT STILL RUNNING...')
-            time.sleep(10)
-            if (cpu > 70):
+            sentmail()
+            while cpu < 70:
                 getinfo()
-                alart()
-        print('************************************************************************')
-    else:
-        print('Access denied. Try again.')
-        x += 1
+                print('THE SCRIPT STILL RUNNING...')
+                time.sleep(10)
+                if (cpu > 70):
+                    getinfo()
+                    alart()
+                    print('************************************************************************')
+        else:
+            print('Access denied. Try again.')
+            x += 1
 
 
 main()
+
